@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #investment-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="investment-container">
+    <h1>Invest in Egyptian Coin</h1>
+    <img src="https://en.numista.com/catalogue/photos/egypte/1890-original.jpg" alt="Egyptian Coin">
+    <p>Minimum investment: 1 KSH</p>
+
+    <label for="investment-amount">Enter your investment (KSH):</label>
+    <input type="number" id="investment-amount" min="1" placeholder="Enter amount to invest" />
+
+    <button id="invest-button" disabled>Invest Now</button>
+
+    <div id="confirmation" style="margin-top: 20px; display: none;">
+        <p>Your investment was successful! You will be redirected to WhatsApp to confirm your investment.</p>
+    </div>
+</div>
+
+<script>
+    const investmentAmountInput = document.getElementById("investment-amount");
+    const investButton = document.getElementById("invest-button");
+    const confirmationMessage = document.getElementById("confirmation");
+
+    investmentAmountInput.addEventListener("input", function() {
+        const amount = parseFloat(investmentAmountInput.value);
+        if (amount >= 1) {
+            investButton.disabled = false;
+        } else {
+            investButton.disabled = true;
+        }
+    });
+
+    investButton.addEventListener("click", function() {
+        const amount = parseFloat(investmentAmountInput.value);
+        if (amount >= 1) {
+            confirmationMessage.style.display = "block";
+            const phoneNumber = "0115500790";
+            const message = `Hello, I would like to invest ${amount} KSH in the Egyptian Coin.`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            setTimeout(function() {
+                window.location.href = whatsappUrl;
+            }, 2000);
+        }
+    });
+</script>
+
+</body>
+</html>
