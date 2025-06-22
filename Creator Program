@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Fund Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #111827;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #d1d5db;
+    }
+    form button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #2563eb;
+    }
+    .ad-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .ad-button:hover {
+      background: #059669;
+    }
+    .image-banner {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <!-- PopAds Code Placeholder -->
+  <script type="text/javascript" src="https://www.popads.net/pop.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Creator Fund Application</h1>
+    <p>Apply to get funding for your content journey</p>
+  </header>  <div class="container">
+    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=60" alt="Creators" class="image-banner"><h2>Application Form</h2>
+<form>
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="platform">Primary Content Platform (YouTube, TikTok, etc.)</label>
+  <input type="text" id="platform" name="platform" required>
+
+  <label for="followers">Current Followers/Subscribers</label>
+  <input type="number" id="followers" name="followers" required>
+
+  <label for="goals">Why do you want to join the Creator Fund?</label>
+  <textarea id="goals" name="goals" rows="4" required></textarea>
+
+  <button type="submit">Submit Application</button>
+</form>
+
+<h2>Support Our Program</h2>
+<p>Click below to support this program by viewing a sponsor's ad:</p>
+<button class="ad-button" onclick="showAd()">Show Support Ad</button>
+
+  </div>  <script>
+    function showAd() {
+      if (typeof PopAds !== 'undefined') {
+        PopAds.requestPopunder('YOUR_POPADS_SITE_ID', {
+          onOpen: function () {
+            console.log("Ad opened!");
+          },
+          onError: function () {
+            console.log("Ad failed to open.");
+          }
+        });
+      } else {
+        alert("Ad network not loaded.");
+      }
+    }
+  </script></body>
+</html>
